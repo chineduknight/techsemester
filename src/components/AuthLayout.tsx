@@ -6,9 +6,11 @@ import { Box, Grid, Heading, Image } from "@chakra-ui/react";
 
 type AuthLayoutProps = {
   children: React.ReactNode
+  gridTemplateColumns?: string
 }
-const AuthLayout = ({ children }: AuthLayoutProps) => {
-  return <Grid gridTemplateColumns="2fr 5fr">
+const AuthLayout = (props: AuthLayoutProps) => {
+  const { gridTemplateColumns = "2fr 5fr", children } = props;
+  return <Grid gridTemplateColumns={gridTemplateColumns}>
     <Box bg="#0070ff" minH="100vh"
       p="16"
     >
@@ -18,7 +20,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
       />
     </Box>
     {children}
-  </Grid>;
+  </Grid >;
 };
 
 export default AuthLayout;
