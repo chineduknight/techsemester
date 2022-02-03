@@ -1,11 +1,13 @@
-import { Box, Text } from "@chakra-ui/react";
-const Login = () => {
-  return <Box>
-    <Text fontWeight='bold' fontSize='80px'>
+import { Box } from "@chakra-ui/react";
+import AuthLayout from "components/AuthLayout";
 
+
+const Login = () => {
+  return <AuthLayout>
+    <Box bg="red">
       I am login
-    </Text>
-  </Box>;
+    </Box>
+  </AuthLayout>;
 };
 
 export default Login;

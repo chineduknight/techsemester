@@ -27,7 +27,7 @@ const primary = {
     border: "2px solid",
     borderColor: "transparent",
   },
-}
+};
 
 export const SelectStyles = {
   variants: {

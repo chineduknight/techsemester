@@ -13,8 +13,8 @@ export const ButtonStyles = {
     primary: (props) => ({
       bg: "primary",
       color: "white",
-      borderRadius: "10px",
-      padding: "1.6rem",
+      borderRadius: "4px",
+      padding: "7px",
       _hover: {
         bg: mode(whiten("primary", 20), darken("primary", 20))(props),
         boxShadow: "md",
