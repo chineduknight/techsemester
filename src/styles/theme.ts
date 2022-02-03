@@ -17,13 +17,8 @@ const WorkspaceTheme = extendTheme({
     body: "Spartan",
   },
   colors: {
-    primary: "#2FA072",
-    secondary: "#2FA07224",
-    highlight: "#00C9A7",
-    warning: "#FFC75F",
-    danger: "#C34A36",
-    text: "#454545",
-    light: "#334DBA24",
+    primary: "#0070FF",
+    secondary: "#173E67",
     // to generate color scheme    
     //https://github.com/chakra-ui/chakra-ui/discussions/2846
     // https://smart-swatch.netlify.app/#2FA072
