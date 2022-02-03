@@ -16,7 +16,10 @@ import {
 import AuthLayout from "components/AuthLayout";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { PUBLIC_PATHS } from "routes/pagePath";
+import { userRequest } from "services";
+import { useMutationWrapper, postRequest } from "services/apiHelper";
 
 
 
@@ -27,7 +30,17 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const history = useNavigate();
-  const onSubmit: SubmitHandler<any> = (data) => console.log(data);
+  const onSuccess = () => {
+    toast.success("Please check your email");
+  };
+  const { mutate, isLoading } = useMutationWrapper(postRequest, onSuccess);
+  const onSubmit: SubmitHandler<any> = (data) => {
+    mutate({
+      url: userRequest.REGISTER,
+      data
+    });
+  };
+
   const formItems = [
     {
       label: "First Name",
@@ -105,7 +118,9 @@ const Register = () => {
             <Checkbox fontSize="12px">   <Text display="inline" fontSize="12px">Yes, I want to receive Lottery Display emails</Text></Checkbox>
             <Checkbox > <Text display="inline" fontSize="12px">I agree to all the <Text display="inline" color="primary" fontSize="12px">Terms, Privacy Policy</Text> and <Text display="inline" color="primary" fontSize="12px">Fees</Text></Text></Checkbox>
           </Box>
-          <Button w="200px" mt="12" type="submit">Create Account</Button>
+          <Button w="200px" mt="12" type="submit"
+            isLoading={isLoading}
+          >Create Account</Button>
         </form>
 
         <Flex mt="4">
