@@ -15,6 +15,9 @@ import {
 } from "@chakra-ui/react";
 import AuthLayout from "components/AuthLayout";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { PUBLIC_PATHS } from "routes/pagePath";
+
 
 
 const Register = () => {
@@ -23,6 +26,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const history = useNavigate();
   const onSubmit: SubmitHandler<any> = (data) => console.log(data);
   const formItems = [
     {
@@ -105,7 +109,7 @@ const Register = () => {
         </form>
 
         <Flex mt="4">
-          <Text fontWeight="400" color="secondary"> Already have an account?</Text> <Link onClick={() => alert("cliecked")} color="primary" ml="2">Log in</Link>
+          <Text fontWeight="400" color="secondary"> Already have an account?</Text> <Link onClick={() => history(PUBLIC_PATHS.LOGIN)} color="primary" ml="2">Log in</Link>
         </Flex>
       </Container>
     </AuthLayout>
