@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, } from "axios";
-export const baseURL = "https://c-sport.tk/api";
+// export const baseURL = "https://c-sport.tk/api";
+export const baseURL = "";
 
 export * from "./request";
 
@@ -8,7 +9,7 @@ const axiosInstance: AxiosInstance = axios.create({
   baseURL,
   headers: {
     Accept: "application/json, text/plain, */*",
-    "Content-Type": "application/json",
+    "Content-Type": "application/json"
   },
   cancelToken: cancelTokenSource.token
 
