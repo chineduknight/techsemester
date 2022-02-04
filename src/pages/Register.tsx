@@ -87,6 +87,7 @@ const Register = () => {
         display="flex"
         justifyContent="center"
         flexDir="column"
+        mb="8"
       >
         <Text mb="8" fontWeight="bold" fontSize="22px" color="#173E67">
           Register
@@ -100,7 +101,7 @@ const Register = () => {
         </Text>
         <Divider />
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Grid mt="4" gridTemplateColumns="1fr 1fr" gap="2rem">
+          <Grid mt="4" gridTemplateColumns={{ lg: "1fr 1fr", md: "1fr 1fr", base: "1fr" }} gap="2rem">
             {formItems.map((formItem) => (
               <FormControl key={formItem.name} isInvalid={errors[formItem.name]}>
                 <FormLabel fontSize="12px" color="#173E67" htmlFor={formItem.name}> {formItem.label} </FormLabel>

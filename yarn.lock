@@ -2547,6 +2547,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-icons@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-icons/-/react-icons-3.0.0.tgz#27ca2823a6add881d06a371bfff093afc1b9c829"
+  integrity sha512-Vefs6LkLqF61vfV7AiAqls+vpR94q67gunhMueDznG+msAkrYgRxl7gYjNem/kZ+as2l2mNChmF1jRZzzQQtMg==
+  dependencies:
+    react-icons "*"
+
 "@types/react-toastify@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@types/react-toastify/-/react-toastify-4.1.0.tgz#604e712855dd677916d5c66af595d3b590f5d95d"
@@ -3611,6 +3618,19 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
+
+ckeditor4-integrations-common@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ckeditor4-integrations-common/-/ckeditor4-integrations-common-1.0.0.tgz#a8afc33b94877b4d01362c7c73aa9eec162b2d20"
+  integrity sha512-OAoQT/gYrHkg0qgzf6MS/rndYhq3SScLVQ3rtXQeuCE8ju7nFHg3qZ7WGA2XpFxcZzsMP6hhugXqdel5vbcC3g==
+
+ckeditor4-react@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ckeditor4-react/-/ckeditor4-react-2.1.0.tgz#98b4b7f2eadffdb547d95bdf4c00f6d23092a979"
+  integrity sha512-sa79buBoZzqmJS7G7r/NKM6qhowWuPpPJ7SKOmA0Z2lFNI95RUqpdiuNKQUfAr7li+HU3BrY2RgNKSyARq06jA==
+  dependencies:
+    ckeditor4-integrations-common "^1.0.0"
+    prop-types "^15.7.2"
 
 clean-css@^5.2.2:
   version "5.2.4"
@@ -7955,6 +7975,11 @@ react-hook-form@^7.25.3:
   version "7.25.3"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.25.3.tgz#1475fd52398e905e1f6d88835f96aaa1144635c3"
   integrity sha512-jL4SByMaC8U3Vhu9s7CwgJBP4M6I3Kpwxib9LrCwWSRPnXDrNQL4uihSTqLLoDICqSUhwwvian9uVYfv+ITtGg==
+
+react-icons@*, react-icons@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
+  integrity sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==
 
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"

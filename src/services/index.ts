@@ -1,7 +1,7 @@
 // import axios, { AxiosInstance, AxiosRequestConfig, } from "axios";
 import axios, { AxiosInstance, } from "axios";
 // export const baseURL = "https://c-sport.tk/api";
-export const baseURL = "/api";
+export const baseURL = "https://ortho-test-app.herokuapp.com";
 
 export * from "./request";
 

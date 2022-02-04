@@ -10,9 +10,10 @@ type AuthLayoutProps = {
 }
 const AuthLayout = (props: AuthLayoutProps) => {
   const { gridTemplateColumns = "2fr 5fr", children } = props;
-  return <Grid gridTemplateColumns={gridTemplateColumns}>
+  return <Grid gridTemplateColumns={{ lg: gridTemplateColumns, base: "1fr" }}>
     <Box bg="#0070ff" minH="100vh"
       p="16"
+      display={{ lg: "block", base: "none" }}
     >
       <Heading mt="20" color="#fff">A few clicks away from creating your Lottery Display</Heading>
       <Image
