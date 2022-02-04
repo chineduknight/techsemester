@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, } from "axios";
 // export const baseURL = "https://c-sport.tk/api";
-export const baseURL = "";
+export const baseURL = "/api";
 
 export * from "./request";
 
@@ -24,7 +24,7 @@ const addTokenToRequest = (request: AxiosRequestConfig) => {
   return request;
 };
 
-axiosInstance.interceptors.request.use(addTokenToRequest);
+// axiosInstance.interceptors.request.use(addTokenToRequest);
 
 export default axiosInstance;
 

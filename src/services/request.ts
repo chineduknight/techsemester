@@ -1,5 +1,5 @@
 export const userRequest = {
-  LOGIN: "/users/auth/login",
+  LOGIN: "/users/auth/login/",
   REGISTER: "/users/auth/register/",
   USER_INFO: "/users"
 };
