@@ -6,7 +6,7 @@ type SearchBoxProps = {
   placeholder?: string;
   width?: string;
   height?: string;
-  onChange: (event) => void;
+  onChange?: () => void;
   value?: string;
   disabled?: boolean,
 };

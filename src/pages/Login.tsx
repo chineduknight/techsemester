@@ -20,6 +20,7 @@ import { toast } from "react-toastify";
 import { PUBLIC_PATHS } from "routes/pagePath";
 import { userRequest } from "services";
 import { postRequest, useMutationWrapper } from "services/apiHelper";
+import { KEY_TOKEN, KEY_USER } from "util/constant";
 
 
 
@@ -30,8 +31,11 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const history = useNavigate();
-  const onSuccess = () => {
-    toast.success("Please check your email");
+  const onSuccess = (res) => {
+    localStorage.setItem(KEY_TOKEN, res.access_token);
+    localStorage.setItem(KEY_USER, JSON.stringify(res.user));
+    toast.success("Success");
+    window.location.href = "/";
   };
   const { mutate, isLoading } = useMutationWrapper(postRequest, onSuccess);
   const onSubmit: SubmitHandler<any> = (data) => {
@@ -51,7 +55,7 @@ const Login = () => {
       label: "Password",
       name: "password",
       type: "password",
-      errorMessage: "Please input your phone number"
+      errorMessage: "Please input your password"
     },
   ];
   return <AuthLayout
@@ -63,7 +67,7 @@ const Login = () => {
       justifyContent="center"
       flexDir="column"
     >
-      <Text mb="8" fontWeight="bold" fontSize="22px" color="#173E67">
+      <Text mt={{ base: "12", lg: "0" }} mb="8" fontWeight="bold" fontSize="22px" color="#173E67">
         Login
       </Text>
       <Text mb="8" fontWeight="bold" fontSize="22px" color="#173E67">

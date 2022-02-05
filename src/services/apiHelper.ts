@@ -45,10 +45,10 @@ export const useMutationWrapper = (makeAPICall, onSuccess?, onError?): any => {
         onError(error);
       } else {
         const err = error as Record<any, any>;
-        let message: any = err?.response?.data?.message;
+        let message: any = err.response.data.errors;
         if (Array.isArray(message)) {
           message.map(errorMsg => toast.error(`${errorMsg ?? "An error occured"}`, {
-            autoClose: false
+            autoClose: message.length === 1 ? 5000 : false
           }));
         } else {
           toast.error(`${message ?? "An error occured"}`);

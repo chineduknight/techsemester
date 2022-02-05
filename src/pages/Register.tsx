@@ -14,6 +14,7 @@ import {
   Box
 } from "@chakra-ui/react";
 import AuthLayout from "components/AuthLayout";
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -30,11 +31,21 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const history = useNavigate();
-  const onSuccess = () => {
-    toast.success("Please check your email");
+  const onError = (error) => {
+    const errors = error.response.data?.errors || [];
+    const invaildEmail = error.response.data?.email || [];
+    const errorMsg = [...invaildEmail, ...errors];
+    toast.error(errorMsg[0]);
   };
-  const { mutate, isLoading } = useMutationWrapper(postRequest, onSuccess);
+  const [hasAgreedTerms, setHasAgreedTerms] = useState(true);
+  const onSuccess = () => {
+    toast.success("Please check your email. Then click the link to confirm");
+  };
+  const { mutate, isLoading } = useMutationWrapper(postRequest, onSuccess, onError);
   const onSubmit: SubmitHandler<any> = (data) => {
+    if (data.password1 !== data.password2) {
+      return toast.error("Passwords do not match");
+    }
     mutate({
       url: userRequest.REGISTER,
       data
@@ -80,6 +91,10 @@ const Register = () => {
     },
 
   ];
+
+  const onChecked = (event) => {
+    setHasAgreedTerms(event.target.checked);
+  };
   return (
     <AuthLayout>
       <Container
@@ -89,7 +104,7 @@ const Register = () => {
         flexDir="column"
         mb="8"
       >
-        <Text mb="8" fontWeight="bold" fontSize="22px" color="#173E67">
+        <Text mt={{ base: "12", lg: "0" }} mb="8" fontWeight="bold" fontSize="22px" color="#173E67">
           Register
         </Text>
         <Text mb="8" fontWeight="bold" fontSize="22px" color="#173E67">
@@ -117,10 +132,11 @@ const Register = () => {
 
           <Box mt="8">
             <Checkbox fontSize="12px">   <Text display="inline" fontSize="12px">Yes, I want to receive Lottery Display emails</Text></Checkbox>
-            <Checkbox > <Text display="inline" fontSize="12px">I agree to all the <Text display="inline" color="primary" fontSize="12px">Terms, Privacy Policy</Text> and <Text display="inline" color="primary" fontSize="12px">Fees</Text></Text></Checkbox>
+            <Checkbox defaultChecked onChange={onChecked}> <Text display="inline" fontSize="12px">I agree to all the <Text display="inline" color="primary" fontSize="12px">Terms, Privacy Policy</Text> and <Text display="inline" color="primary" fontSize="12px">Fees</Text></Text></Checkbox>
           </Box>
           <Button w="200px" mt="12" type="submit"
             isLoading={isLoading}
+            isDisabled={!hasAgreedTerms}
           >Create Account</Button>
         </form>
 
